@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="script.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Gm</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body onload="load()">
+    <div class="column">
+      <span>Total Worth: $</span><span id="worth"></span><br>
+      <span>Money: $</span><span id = "money"></span>
+      <br>
+      <button onclick="changeMoney(1)">Make Money</button>
+      <br><br>
+      <span>Bots: </span><span id="bots"></span><br>
+      <span>Bot Price: $</span><span id="botprice"></span><br>
+      <button onclick="buyBots(1);">Buy 1 Bot</button><button onclick="buyBots(0)">Buy All Bots</button>
+      <br><br>
+      <span>Coin Flip</span><br>
+      <span class = "sameline">Pool: $</span><span id = "pool" class = "sameline"></span>
+      <br>
+      <button onclick="decreasePool(0)">-All</button>
+      <button onclick="decreasePool(10)">-10</button>
+      <button onclick="decreasePool(1)">-</button>      <button onclick="increasePool(1)">+</button>
+      <button onclick="increasePool(10)">+10</button>
+      <button onclick="increasePool(0)">+All</button>
+      <br>
+      <button class = "sameline" onclick="flip()">Flip Heads</button>
+      <button class = "sameline" onclick="flip()">Flip Tails</button>
+      <span id = "flipwinner" class = "sameline"> </span>
+      <br><br>
+      <span>Owned Stocks: </span><span id="stocks"></span><br>
+      <span>Perry Inc. Stock Price: $</span><span id="stockprice"></span>
+      <span>&nbsp&nbsp&nbspValue:</span>
+      <span>$</span><span id="stockvalue">0</span>
+      <br>
+      <button onclick="sellStocks(0)">Sell All</button>
+      <button onclick="sellStocks(10)">Sell 10</button>
+      <button onclick="sellStocks(1)">Sell 1</button>      <button onclick="buyStocks(1)">Buy 1</button>
+      <button onclick="buyStocks(10)">Buy 10</button>
+      <button onclick="buyStocks(0)">Buy All</button>
+      <br><br>
+      <span>Mines: </span><input type="radio" name="mines" value=3 checked="checked">3 </input><input type="radio" name="mines" value=5>5 </input><input type="radio" name="mines" value=7>7 </input>
+      <br>
+      <span>Pool: $</span><span id="minepool"></span><span> (More mines, more reward.)</span><br>
+      <button onclick="decreaseMinePool(0)">-All</button>
+      <button onclick="decreaseMinePool(10)">-10</button>
+      <button onclick="decreaseMinePool(1)">-</button>    <button onclick="increaseMinePool(1)">+</button>
+      <button onclick="increaseMinePool(10)">+10</button>
+      <button onclick="increaseMinePool(0)">+All</button>
+      <br>
+      <button id="but1" onclick="testMine(this)" class="minefield">&nbsp</button><button id="but2" onclick="testMine(this)" class="minefield">&nbsp</button><button id="but3" onclick="testMine(this)" class="minefield">&nbsp</button><button id="but4" onclick="testMine(this)" class="minefield">&nbsp</button><br>
+      <button id="but5" onclick="testMine(this)" class="minefield">&nbsp</button><button id="but6" onclick="testMine(this)" class="minefield">&nbsp</button><button id="but7" onclick="testMine(this)" class="minefield">&nbsp</button><button id="but8" onclick="testMine(this)" class="minefield">&nbsp</button><br>
+      <button id="but9" onclick="testMine(this)" class="minefield">&nbsp</button><button id="but10" onclick="testMine(this)" class="minefield">&nbsp</button><button id="but11" onclick="testMine(this)" class="minefield">&nbsp</button><button id="but12" onclick="testMine(this)" class="minefield">&nbsp</button><br>
+      <button id="but13" onclick="testMine(this)" class="minefield">&nbsp</button><button id="but14" onclick="testMine(this)" class="minefield">&nbsp</button><button id="but15" onclick="testMine(this)" class="minefield">&nbsp</button><button id="but16" onclick="testMine(this)" class="minefield">&nbsp</button><br>
+      <button onclick="makeField()">Start New Game</button>
+      <br><br>
+    </div>
+    <div class="column">
+      <span>Lottery</span><br>
+      <span>$</span><span id='ticketprice'>1</span><span> per ticket, $</span><span id='jackpot'></span>
+      <span>jackpot.</span><br>
+      <span>Purchase: </span><button onclick="buyTicket(1);">1 Ticket</button><button onclick="buyTicket(10);">10 Tickets</button><button onclick="buyTicket(100);">100 Tickets</button>
+      <span>&nbspOdds: </span><span id="odds"></span><span>/1000</span><br>
+      <span>Seconds until Drawing: </span><span id="countdown">30</span><br>
+      <span id="lotterywinner">Waiting...</span>
+      <br><br>
+      <table>
+        <tr id="">
+          <td class="spinner" id=0>$</td>
+          <td class="spinner">$</td>
+          <td class="spinner">$</td>
+        </tr>
+      </table>
+      <button onClick='spin()'>Spin for $15</button>
+      <span>You Won: $</span><span id='spinwin'>0</span>
+      <br><br>
+      <input autocomplete="off" type="text" id="inputbox">
+      <button onclick="textInput();">Submit</button>
+      
+    </div> 
+    <button id='footer' onclick='resetAlert()'>Reset</button>
+  </body>
+</html>

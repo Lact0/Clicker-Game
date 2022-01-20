@@ -1,0 +1,56 @@
+p {
+  display:inline;
+}
+.column {
+  float: left;
+  width: 50%;
+}
+.minefield {
+  width: 26px;
+  height: 26px;
+}
+td {
+  border:1px solid white;
+  width:20px;
+  text-align: center;
+}
+#inputbox {
+  background-color: black;
+  color: white;
+  border-radius: 12px;
+  border: 2px solid white;
+  transition-duration: 0.4s;
+}
+#inputbox:hover {
+  border-radius: 2px;
+}
+button {
+  background-color: black;
+  color: white;
+  border-radius: 12px;
+  border: 2px solid white;
+  transition-duration: 0.4s;
+}
+button:hover {
+  background-color: grey;
+  border-radius: 5px;
+}
+button:active {
+  background-color:white;
+  color:black;
+
+  text-shadow: none;
+}
+body {
+  background-color: black;
+  color: white;
+}
+html * {
+  font-family: Comic Sans MS;
+  text-shadow: 1px 1px teal;
+}
+#footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
