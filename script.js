@@ -230,7 +230,7 @@ function buyBots(num) {
   updateBots();
 }
 function changeBotPrice() {
-  botprice = Math.floor(botprice * 1.1);
+  botprice = Math.floor(botprice * 1.05);
   updateBotPrice();
 }
 function increaseMinePool(num) {

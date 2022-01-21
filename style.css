@@ -3,7 +3,7 @@ p {
 }
 .column {
   float: left;
-  width: 50%;
+  width: 33%;
 }
 .minefield {
   width: 26px;
@@ -53,4 +53,16 @@ html * {
   position: fixed;
   bottom: 0;
   right: 0;
+}
+.box {
+  background-color: black;
+  width: 32vw;
+  height: 95vh;
+  border: 1px solid white;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow: auto;
+}
+.inbox {
+  text-shadow: none;
 }
