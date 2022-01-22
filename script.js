@@ -4,7 +4,7 @@ window.addEventListener('beforeunload', function () {
   storage.setItem('lastOn', d.getTime());
 })
 storage = window.localStorage;
-spinner = ['!', '@', '#', '$', '%', '&', '*']
+spinner = ['!', '@', '#', '$', '%', '&', '*'];
 function load() {
   if(storage.length < 9) {
     storage.setItem('money',0);
