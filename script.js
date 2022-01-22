@@ -6,6 +6,17 @@ window.addEventListener('beforeunload', function () {
 storage = window.localStorage;
 spinner = ['!', '@', '#', '$', '%', '&', '*'];
 function load() {
+  document.getElementById('work').addEventListener('click', function (e) {
+  changeMoney(1);
+  });
+  document.getElementById('work').addEventListener('keydown', function (e) {
+    var key = e.keyCode || e.charCode;
+    if (key == 13) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
+  });
+
   if(storage.length < 9) {
     storage.setItem('money',0);
     storage.setItem('pool',0);
