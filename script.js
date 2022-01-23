@@ -5,10 +5,21 @@ window.addEventListener('beforeunload', function () {
 })
 storage = window.localStorage;
 spinner = ['!', '@', '#', '$', '%', '&', '*'];
+
+
 function load() {
   document.getElementById('work').addEventListener('click', function (e) {
   changeMoney(1);
   });
+
+  var frame = document.getElementById('updates');
+  frame.onload = function () {
+    var body = frame.contentWindow.document.querySelector('body');
+    body.style.color = 'white';
+    body.style.fontSize = '20px';
+    body.style.lineHeight = '20px';
+  };
+
   document.getElementById('work').addEventListener('keydown', function (e) {
     var key = e.keyCode || e.charCode;
     if (key == 13) {

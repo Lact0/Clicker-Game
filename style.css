@@ -62,7 +62,6 @@ html * {
   padding-left: 5px;
   padding-right: 5px;
   overflow: auto;
-}
-.inbox {
   text-shadow: none;
+  color: white;
 }
