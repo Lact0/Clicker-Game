@@ -33,10 +33,10 @@ function load() {
     storage.setItem('pool',0);
     storage.setItem('stocks',0);
     storage.setItem('stockprice',10);
-    storage.setItem('bots',0)
-    storage.setItem('botprice',100)
-    storage.setItem('minepool',0)
-    storage.setItem('odds',0)
+    storage.setItem('bots',0);
+    storage.setItem('botprice',100);
+    storage.setItem('minepool',0);
+    storage.setItem('odds',0);
     d = new Date();
     storage.setItem('lastOn', d.getTime());
   }
@@ -47,12 +47,12 @@ function load() {
   bots = parseInt(storage.getItem('bots'));
   botprice = parseInt(storage.getItem('botprice'));
   minepool = parseInt(storage.getItem('minepool'));
-  odds = parseInt(storage.getItem('odds'))
-  winnings = 0
-  spinning = false
+  odds = parseInt(storage.getItem('odds'));
+  winnings = 0;
+  spinning = false;
   refresh();
   backOnline();
-  tick = 0
+  tick = 0;
   clock = setInterval(time,1000);
 }
 
