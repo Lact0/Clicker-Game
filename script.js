@@ -5,12 +5,10 @@ window.addEventListener('beforeunload', function () {
 })
 storage = window.localStorage;
 spinner = ['!', '@', '#', '$', '%', '&', '*'];
-
+strgkys = [['money', 0], ['pool', 0], ['stocks', 0], ['stockprice', 10], ['bots', 0], ['botprice', 100], ['minepool', 0], ['odds', 0], ['lastOn', new Date().getTime()]];
 
 function load() {
-  document.getElementById('work').addEventListener('click', function (e) {
-  changeMoney(1);
-  });
+  document.getElementById('work').addEventListener('click', work);
 
   var frame = document.getElementById('updates');
   frame.onload = function () {
@@ -20,14 +18,12 @@ function load() {
     body.style.lineHeight = '20px';
   };
 
-  document.getElementById('work').addEventListener('keydown', function (e) {
-    var key = e.keyCode || e.charCode;
-    if (key == 13) {
-      e.stopPropagation();
-      e.preventDefault();
+  document.getElementById('work').addEventListener('keydown', work);
+  for(o = 0; o < strgkys.length; o++) {
+    if(storage.getItem(strgkys[o][0]) == null) {
+      storage.setItem(strgkys[o][0], strgkys[o][1]);
     }
-  });
-
+  }
   if(storage.length < 9) {
     storage.setItem('money',0);
     storage.setItem('pool',0);
@@ -54,6 +50,10 @@ function load() {
   backOnline();
   tick = 0;
   clock = setInterval(time,1000);
+}
+
+function work() {
+  changeMoney(1);
 }
 
 function backOnline() {
@@ -84,6 +84,7 @@ function refresh() {
 function reset() {
   clearInterval(clock);
   storage.clear();
+  document.getElementById('work').removeEventListener('click', work);
   load();
 }
 function changeMoney(inc) {
