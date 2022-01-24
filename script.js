@@ -5,18 +5,10 @@ window.addEventListener('beforeunload', function () {
 })
 storage = window.localStorage;
 spinner = ['!', '@', '#', '$', '%', '&', '*'];
-strgkys = [['money', 0], ['pool', 0], ['stocks', 0], ['stockprice', 10], ['bots', 0], ['botprice', 100], ['minepool', 0], ['odds', 0], ['lastOn', new Date().getTime()], ['Mpc', 1]];
+strgkys = [['money', 0], ['pool', 0], ['stocks', 0], ['stockprice', 10], ['bots', 0], ['botprice', 100], ['minepool', 0], ['odds', 0], ['lastOn', new Date().getTime()], ['Mpc', 1], ['clickprice', 15]];
 
 function load() {
   document.getElementById('work').addEventListener('click', work);
-
-  var frame = document.getElementById('updates');
-  frame.onload = function () {
-    var body = frame.contentWindow.document.querySelector('body');
-    body.style.color = 'white';
-    body.style.fontSize = '20px';
-    body.style.lineHeight = '20px';
-  };
   
   for(o = 0; o < strgkys.length; o++) {
     if(storage.getItem(strgkys[o][0]) == null) {
@@ -32,6 +24,7 @@ function load() {
   minepool = parseInt(storage.getItem('minepool'));
   odds = parseInt(storage.getItem('odds'));
   mpc = parseInt(storage.getItem('Mpc'));
+  clickprice = parseInt(storage.getItem('clickprice'));
   winnings = 0;
   spinning = false;
   refresh();
@@ -129,9 +122,9 @@ function updateTicketPrice() {
     digits += 1;
     mon = Math.floor(mon/10);
   }
-  ticketprice = 10 ** (digits - 3)
+  ticketprice = 10 ** (digits - 3);
   if(ticketprice < 1) {
-    ticketprice = 1
+    ticketprice = 1;
   }
   document.getElementById('jackpot').innerHTML = 10 **(digits + 1)
   document.getElementById("ticketprice").innerHTML = ticketprice;
@@ -139,9 +132,19 @@ function updateTicketPrice() {
 function updateSpinwin() {
   document.getElementById('spinwin').innerHTML = winnings;
 }
-function updateMpc() {
+function updateClicker() {
   document.getElementById('mpc').innerHTML = mpc;
   storage.setItem('Mpc', mpc);
+  document.getElementById('upprice').innerHTML = clickprice;
+  storage.setItme('clickprice', clickprice);
+}
+function buyClicker() {
+  if(money >= clickprice) {
+    changeMoney(-clickprice);
+    mpc = mpc + 1;
+    clickprice = (mpc * 15) * 1.2
+  }
+  updateClicker();
 }
 function increasePool(num) {
   if(num == 0) {
