@@ -18,23 +18,10 @@ function load() {
     body.style.lineHeight = '20px';
   };
   
-  
   for(o = 0; o < strgkys.length; o++) {
     if(storage.getItem(strgkys[o][0]) == null) {
       storage.setItem(strgkys[o][0], strgkys[o][1]);
     }
-  }
-  if(storage.length < 9) {
-    storage.setItem('money',0);
-    storage.setItem('pool',0);
-    storage.setItem('stocks',0);
-    storage.setItem('stockprice',10);
-    storage.setItem('bots',0);
-    storage.setItem('botprice',100);
-    storage.setItem('minepool',0);
-    storage.setItem('odds',0);
-    d = new Date();
-    storage.setItem('lastOn', d.getTime());
   }
   money = parseInt(storage.getItem('money'));
   pool = parseInt(storage.getItem('pool'));
@@ -44,6 +31,7 @@ function load() {
   botprice = parseInt(storage.getItem('botprice'));
   minepool = parseInt(storage.getItem('minepool'));
   odds = parseInt(storage.getItem('odds'));
+  mpc = parseInt(storage.getItem('Mpc'));
   winnings = 0;
   spinning = false;
   refresh();
@@ -53,7 +41,7 @@ function load() {
 }
 
 function work() {
-  changeMoney(1);
+  changeMoney(mpc);
 }
 
 function backOnline() {
@@ -150,6 +138,10 @@ function updateTicketPrice() {
 }
 function updateSpinwin() {
   document.getElementById('spinwin').innerHTML = winnings;
+}
+function updateMpc() {
+  document.getElementById('mpc').innerHTML = mpc;
+  storage.setItem('Mpc', mpc);
 }
 function increasePool(num) {
   if(num == 0) {
