@@ -5,7 +5,7 @@ window.addEventListener('beforeunload', function () {
 })
 storage = window.localStorage;
 spinner = ['!', '@', '#', '$', '%', '&', '*'];
-strgkys = [['money', 0], ['pool', 0], ['stocks', 0], ['stockprice', 10], ['bots', 0], ['botprice', 100], ['minepool', 0], ['odds', 0], ['lastOn', new Date().getTime()]];
+strgkys = [['money', 0], ['pool', 0], ['stocks', 0], ['stockprice', 10], ['bots', 0], ['botprice', 100], ['minepool', 0], ['odds', 0], ['lastOn', new Date().getTime()], ['Mpc', 1]];
 
 function load() {
   document.getElementById('work').addEventListener('click', work);
@@ -17,8 +17,8 @@ function load() {
     body.style.fontSize = '20px';
     body.style.lineHeight = '20px';
   };
-
-  document.getElementById('work').addEventListener('keydown', work);
+  
+  
   for(o = 0; o < strgkys.length; o++) {
     if(storage.getItem(strgkys[o][0]) == null) {
       storage.setItem(strgkys[o][0], strgkys[o][1]);
