@@ -5,7 +5,7 @@ window.addEventListener('beforeunload', function () {
 })
 storage = window.localStorage;
 spinner = ['!', '@', '#', '$', '%', '&', '*'];
-strgkys = [['money', 0], ['pool', 0], ['stocks', 0], ['stockprice', 10], ['bots', 0], ['botprice', 100], ['minepool', 0], ['odds', 0], ['lastOn', new Date().getTime()], ['Mpc', 1], ['clickprice', 15]];
+strgkys = [['money', 0], ['pool', 0], ['stocks', 0], ['stockprice', 10], ['bots', 0], ['botprice', 100], ['minepool', 0], ['odds', 0], ['lastOn', new Date().getTime()], ['Mpc', 1], ['clickprice', 25]];
 
 function load() {
   document.getElementById('work').addEventListener('click', work);
@@ -61,6 +61,7 @@ function refresh() {
   updateOdds();
   resetMinefield();
   updateTicketPrice();
+  updateClicker();
 }
 function reset() {
   clearInterval(clock);
@@ -133,16 +134,16 @@ function updateSpinwin() {
   document.getElementById('spinwin').innerHTML = winnings;
 }
 function updateClicker() {
-  document.getElementById('mpc').innerHTML = mpc;
+  document.getElementById('Mpc').innerHTML = mpc;
   storage.setItem('Mpc', mpc);
   document.getElementById('upprice').innerHTML = clickprice;
-  storage.setItme('clickprice', clickprice);
+  storage.setItem('clickprice', clickprice);
 }
 function buyClicker() {
   if(money >= clickprice) {
     changeMoney(-clickprice);
     mpc = mpc + 1;
-    clickprice = (mpc * 15) * 1.2
+    clickprice = Math.floor((mpc * 15) * 1.7)
   }
   updateClicker();
 }
