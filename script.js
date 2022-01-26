@@ -149,12 +149,12 @@ function buyClicker() {
 }
 function increasePool(num) {
   if(num == 0) {
-    pool += money
-    money = 0
+    pool += money;
+    money = 0;
   } else {
     if(money >= num) {
-      pool += num
-      money -= num
+      pool += num;
+      money -= num;
     }
   }
   updateMoney();
@@ -162,12 +162,12 @@ function increasePool(num) {
 }
 function decreasePool(num) {
   if(num == 0) {
-    money += pool
-    pool = 0
+    money += pool;
+    pool = 0;
   } else {
     if(pool >= num) {
-      pool -= num
-      money += num
+      pool -= num;
+      money += num;
     }
   }
   updateMoney();
@@ -178,12 +178,12 @@ function flip() {
   num = Math.floor(Math.random() * 2);
   if(num == 0) {
     document.getElementById("flipwinner").innerHTML = "Lose!";
-    pool = 0
+    pool = 0;
     updatePool();
   }
   if(num == 1) {
     document.getElementById("flipwinner").innerHTML = "Win!";
-    pool = pool + pool
+    pool = pool + pool;
     updatePool();
   }
 }
@@ -195,8 +195,8 @@ function buyStocks(num) {
     }
   } else {
     if(money >= (num * stockprice)) {
-      stocks = stocks + num
-      money = money - (num * stockprice)
+      stocks = stocks + num;
+      money = money - (num * stockprice);
     }
   }
   updateMoney();
@@ -204,12 +204,12 @@ function buyStocks(num) {
 }
 function sellStocks(num) {
   if(num == 0) {
-    money = money + (stocks * stockprice)
-    stocks = 0
+    money = money + (stocks * stockprice);
+    stocks = 0;
   } else {
     if(stocks >= num) {
-      stocks = stocks - num
-      money = money + (num * stockprice)
+      stocks = stocks - num;
+      money = money + (num * stockprice);
     }
   }
   updateMoney();
@@ -217,12 +217,12 @@ function sellStocks(num) {
 }
 function changeStockPrice() {
   num = Math.floor(Math.sqrt((Math.random() * 49)));
-  num = 7 - num
+  num = 7 - num;
   sign = Math.floor(Math.random() * 2)
   if(sign == 0 && stockprice > 7) {
-    stockprice = stockprice - num
+    stockprice = stockprice - num;
   } else {
-    stockprice = stockprice + num
+    stockprice = stockprice + num;
   }
   updateStockPrice();
 }
@@ -235,7 +235,7 @@ function buyBots(num) {
     while(money >= botprice) {
       money -= botprice;
       changeBotPrice();
-      bots = bots + 1
+      bots = bots + 1;
     }
   } else {
     for(i = 0; i < num; i++) {
@@ -254,12 +254,12 @@ function changeBotPrice() {
 }
 function increaseMinePool(num) {
   if(num == 0) {
-    minepool += money
-    money = 0
+    minepool += money;
+    money = 0;
   } else {
     if(money >= num) {
-      minepool += num
-      money -= num
+      minepool += num;
+      money -= num;
     }
   }
   updateMoney();
@@ -267,12 +267,12 @@ function increaseMinePool(num) {
 }
 function decreaseMinePool(num) {
   if(num == 0) {
-    money += minepool
-    minepool = 0
+    money += minepool;
+    minepool = 0;
   } else {
     if(minepool >= num) {
-      minepool -= num
-      money += num
+      minepool -= num;
+      money += num;
     }
   }
   updateMoney();
@@ -333,12 +333,12 @@ function drawLottery() {
   } else {
     document.getElementById('lotterywinner').innerHTML = "YOU LOST!";
   }
-  odds = 0
-  updateTicketPrice()
+  odds = 0;
+  updateTicketPrice();
   updateOdds();
 }
 function time() {
-  tick = tick + 1
+  tick = tick + 1;
   document.getElementById('countdown').innerHTML = 30 - tick;
   if(tick == 3){
     document.getElementById('lotterywinner').innerHTML = "Waiting...";
@@ -387,11 +387,11 @@ function spin() {
     }
     updateSpinwin();
     changeMoney(winnings);
-    spinning = false
+    spinning = false;
   }, 1000)
 }
 function resetAlert() {
   if(confirm("Are you sure you want to reset your game?")) {
-    reset()
+    reset();
   }
 }
