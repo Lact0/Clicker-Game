@@ -7,6 +7,8 @@ storage = window.localStorage;
 spinner = ['!', '@', '#', '$', '%', '&', '*'];
 strgkys = [['money', 0], ['pool', 0], ['stocks', 0], ['stockprice', 10], ['bots', 0], ['botprice', 100], ['minepool', 0], ['odds', 0], ['lastOn', new Date().getTime()], ['Mpc', 1], ['clickprice', 25]];
 
+lot = false;
+
 function load() {
   document.getElementById('work').addEventListener('click', work);
   
@@ -316,6 +318,7 @@ function testMine(mine) {
 function buyTicket(num) {
   for(i=0;i<num;i++) {
     if(money >= ticketprice) {
+      lot = true;
       money = money - ticketprice;
       odds++;
     } else {
@@ -339,9 +342,11 @@ function drawLottery() {
 }
 function time() {
   tick = tick + 1;
-  document.getElementById('countdown').innerHTML = 30 - tick;
-  if(tick == 3){
-    document.getElementById('lotterywinner').innerHTML = "Waiting...";
+  if(lot) {
+    document.getElementById('countdown').innerHTML = 30 - tick;
+    if(tick == 3){
+      document.getElementById('lotterywinner').innerHTML = "Waiting...";
+    }
   }
   if(tick % 5 == 0) {
     changeStockPrice();
@@ -350,6 +355,8 @@ function time() {
   if(tick == 30) {
     tick = 0;
     drawLottery();
+    lot = false;
+    document.getElementById('countdown').innerHTML = 30;
   }
 }
 function spin() {
